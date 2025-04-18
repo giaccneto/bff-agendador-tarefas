@@ -3,6 +3,11 @@ package com.giaccneto.bff_agendador_tarefa.business;
 import com.giaccneto.bff_agendador_tarefa.business.dto.EnderecoDTO;
 import com.giaccneto.bff_agendador_tarefa.business.dto.TelefoneDTO;
 import com.giaccneto.bff_agendador_tarefa.business.dto.UsuarioDTO;
+import com.giaccneto.bff_agendador_tarefa.business.dto.in.EnderecoDTORequest;
+import com.giaccneto.bff_agendador_tarefa.business.dto.in.LoginRequestDTO;
+import com.giaccneto.bff_agendador_tarefa.business.dto.in.TelefoneDTORequest;
+import com.giaccneto.bff_agendador_tarefa.business.dto.in.UsuarioDTORequest;
+import com.giaccneto.bff_agendador_tarefa.business.dto.out.UsuarioDTOResponse;
 import com.giaccneto.bff_agendador_tarefa.infrastructure.client.UsuarioClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -13,11 +18,11 @@ public class UsuarioService {
 
     private final UsuarioClient client;
 
-    public UsuarioDTO salvaUsuario(UsuarioDTO usuarioDTO){
+    public UsuarioDTORequest salvaUsuario(UsuarioDTO usuarioDTO){
 
         return client.salvaUsuario(usuarioDTO);
     }
-    public String loginUsuario(UsuarioDTO usuarioDTO){
+    public String loginUsuario(LoginRequestDTO usuarioDTO){
         return client.login(usuarioDTO);
     }
 
@@ -31,7 +36,7 @@ public class UsuarioService {
         client.deletaUsuarioPorEmail(email, token);
     }
 
-    public UsuarioDTO atualizaDadosUsuario(String token, UsuarioDTO dto){
+    public UsuarioDTO atualizaDadosUsuario(String token, UsuarioDTORequest dto){
 
         return client.atualizaUsuario(dto, token);
     }
@@ -39,7 +44,7 @@ public class UsuarioService {
 
 
 
-    public EnderecoDTO atualizaEndereco(Long idEndereco, EnderecoDTO enderecoDTO, String token){
+    public EnderecoDTO atualizaEndereco(Long idEndereco, EnderecoDTORequest enderecoDTO, String token){
         return client.atualizaEndereco( enderecoDTO, idEndereco, token );
 
     }
@@ -47,7 +52,7 @@ public class UsuarioService {
 
 
 
-    public TelefoneDTO atualizaTelefone(Long idTelefone, TelefoneDTO dto, String token){
+    public TelefoneDTO atualizaTelefone(Long idTelefone, TelefoneDTORequest dto, String token){
        return client.atualizaTelefone(dto, idTelefone, token);
 
     }
@@ -55,14 +60,14 @@ public class UsuarioService {
 
 
 
-    public EnderecoDTO cadastraEndereco(String token, EnderecoDTO dto){
+    public EnderecoDTO cadastraEndereco(String token, EnderecoDTORequest dto){
         return client.cadastraEndereco(dto, token);
     }
 
 
 
 
-    public TelefoneDTO cadastraTelefone(String token, TelefoneDTO dto){
+    public TelefoneDTO cadastraTelefone(String token, TelefoneDTORequest dto){
        return client.cadastraTelefone(dto, token);
 
     }
