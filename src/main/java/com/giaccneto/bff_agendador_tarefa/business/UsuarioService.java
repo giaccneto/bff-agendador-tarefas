@@ -7,7 +7,6 @@ import com.giaccneto.bff_agendador_tarefa.business.dto.in.EnderecoDTORequest;
 import com.giaccneto.bff_agendador_tarefa.business.dto.in.LoginRequestDTO;
 import com.giaccneto.bff_agendador_tarefa.business.dto.in.TelefoneDTORequest;
 import com.giaccneto.bff_agendador_tarefa.business.dto.in.UsuarioDTORequest;
-import com.giaccneto.bff_agendador_tarefa.business.dto.out.UsuarioDTOResponse;
 import com.giaccneto.bff_agendador_tarefa.infrastructure.client.UsuarioClient;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -18,7 +17,7 @@ public class UsuarioService {
 
     private final UsuarioClient client;
 
-    public UsuarioDTORequest salvaUsuario(UsuarioDTO usuarioDTO){
+    public UsuarioDTO salvaUsuario(UsuarioDTORequest usuarioDTO) {
 
         return client.salvaUsuario(usuarioDTO);
     }

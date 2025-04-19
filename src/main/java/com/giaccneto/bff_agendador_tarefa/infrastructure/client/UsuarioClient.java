@@ -19,7 +19,7 @@ public interface UsuarioClient {
                                     @RequestHeader("Autorization") String token);
 
     @PostMapping
-    UsuarioDTO salvaUsuario(@RequestBody UsuarioDTO usuarioDTO);
+    UsuarioDTO salvaUsuario(@RequestBody UsuarioDTORequest usuarioDTO);
 
 
     @PostMapping("/login")

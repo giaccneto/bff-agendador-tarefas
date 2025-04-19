@@ -29,7 +29,7 @@ public class UsuarioController {
     @ApiResponse(responseCode = "200", description = "Usuario salvo com sucesso")
     @ApiResponse(responseCode = "400", description = "Usuario ja cadastrado")
     @ApiResponse(responseCode = "500", description = "Erro de servidor")
-    public ResponseEntity<UsuarioDTO> salvaUsuario(@RequestBody UsuarioDTORequest usuarioDTO){
+    public ResponseEntity<UsuarioDTO> salvaUsuario(@RequestBody UsuarioDTORequest usuarioDTO) {
         return ResponseEntity.ok(usuarioService.salvaUsuario(usuarioDTO));
     }
 
